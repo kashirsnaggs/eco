@@ -1,10 +1,10 @@
 import React, { Fragment, useContext } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import {AiOutlineShopping} from "react-icons/ai"
+import {AiOutlineFacebook, AiOutlineShopping} from "react-icons/ai"
 import {FaRegUserCircle} from "react-icons/fa"
 import Cookies from "js-cookie"
-import Cart from './Cart'
+import Cart from './Cart2'
 import { Store } from '../context/Store'
 import {  useRouter } from 'next/router'
 import { useSession,signOut } from "next-auth/react";
@@ -24,7 +24,7 @@ const Navbar = () => {
         const router=useRouter()
         const { status, data: session } = useSession();
 
-        const {state:{cart}, dispatch, setShowCart ,showCart} = useContext(Store)
+        const {state:{cart}, dispatch, setShowCart ,showCart,cartItems} = useContext(Store)
 
 
         const handleLogout=()=>{
@@ -38,11 +38,13 @@ const Navbar = () => {
         <p className='logo'>
                 <Link href={"/"}>
                         <span className='logoSpan'>
-                                <Image src="/glam_icon.png" alt="GLAM Logo"  width={40} height={40}/>
-                                GLAM
+                                <Image src="/icon.jpg" alt="GLAM Logo"  width={80} height={80}/>
+                                RUGGMOBILE
                         </span>
                 </Link>
         </p>
+      
+              
         <div className="nav-btn-container">
                         {
                                 status === 'loading' ? 
@@ -78,13 +80,6 @@ const Navbar = () => {
                                                                         <Menu.Item as={"div"} className="user-icon-menu-child">
                                                                                 <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M5 11v1h8v-7h-10v-1c0-.552.448-1 1-1h10c.552 0 1 .448 1 1v2h4.667c1.117 0 1.6.576 1.936 1.107.594.94 1.536 2.432 2.109 3.378.188.312.288.67.288 1.035v4.48c0 1.089-.743 2-2 2h-1c0 1.656-1.344 3-3 3s-3-1.344-3-3h-4c0 1.656-1.344 3-3 3s-3-1.344-3-3h-1c-.552 0-1-.448-1-1v-6h-2v-2h7v2h-3zm3 5.8c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm10 0c.662 0 1.2.538 1.2 1.2 0 .662-.538 1.2-1.2 1.2-.662 0-1.2-.538-1.2-1.2 0-.662.538-1.2 1.2-1.2zm-3-2.8h-10v2h.765c.549-.614 1.347-1 2.235-1 .888 0 1.686.386 2.235 1h5.53c.549-.614 1.347-1 2.235-1 .888 0 1.686.386 2.235 1h1.765v-4.575l-1.711-2.929c-.179-.307-.508-.496-.863-.496h-4.426v6zm1-5v3h5l-1.427-2.496c-.178-.312-.509-.504-.868-.504h-2.705zm-16-3h8v2h-8v-2z"/></svg>
                                                                                 <span>Order History</span>
-                                                                        </Menu.Item> 
-                                                                </DropdownLink>
-                                                                <hr />
-                                                                <DropdownLink href={"/admin/dashboard"}>
-                                                                        <Menu.Item as={"div"} className="user-icon-menu-child">
-                                                                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 2c-6.627 0-12 5.373-12 12 0 2.583.575 5.344 2.599 8h18.753c2.023-2.656 2.648-5.417 2.648-8 0-6.627-5.373-12-12-12zm-.758 2.14c.256-.019.51-.029.758-.029s.502.01.758.029v3.115c-.252-.028-.506-.042-.758-.042s-.506.014-.758.042v-3.115zm-5.764 7.978l-2.88-1.193c.158-.479.352-.948.582-1.399l2.879 1.192c-.247.444-.441.913-.581 1.4zm1.217-2.351l-2.203-2.203c.329-.383.688-.743 1.071-1.071l2.203 2.203c-.395.316-.754.675-1.071 1.071zm.793-4.569c.449-.231.919-.428 1.397-.586l1.205 2.874c-.486.142-.954.339-1.397.586l-1.205-2.874zm1.407 13.802c.019-1.151.658-2.15 1.603-2.672l1.502-7.041 1.502 7.041c.943.522 1.584 1.521 1.602 2.672h-6.209zm4.989-11.522l1.193-2.878c.479.156.948.352 1.4.581l-1.193 2.878c-.444-.246-.914-.44-1.4-.581zm2.349 1.218l2.203-2.203c.383.329.742.688 1.071 1.071l-2.203 2.203c-.316-.396-.675-.755-1.071-1.071zm2.259 3.32c-.147-.483-.35-.95-.603-1.39l2.86-1.238c.235.445.437.912.602 1.39l-2.859 1.238z"/></svg>
-                                                                                <span>Admin Dashboard</span>
                                                                         </Menu.Item> 
                                                                 </DropdownLink>
                                                                 <hr />

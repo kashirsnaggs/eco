@@ -1,49 +1,40 @@
 import React from 'react'
-import { Product,FooterBanner,HeroBanner } from '../components/index'
-import {default as AllProducts}   from '../models/Product'
-import Banner  from '../models/Banner'
-import db from "../lib/db"
-import MotionWrap from '../components/MotionWrap'
-import {motion} from "framer-motion";
 
+import { client } from '../lib/client'
+import { Product, FooterBanner, HeroBanner } from '../components'
 
-const Home = ({products,banners}) => {
-        const stagger = {
-                animate: {
-                        transition: { staggerChildren: 0.1  }
-                }
-        };
-        
+const Home = ({ products, bannerData }) => {
   return (
-    <MotionWrap>
-        <HeroBanner heroBanner={banners.length?banners[0]:""}/>
+    <>
+      <HeroBanner heroBanner={bannerData.length && bannerData[0]} />
+      {console.log(bannerData)}
 
-        <div className="products-heading">
-                <h2>Best Selling Products</h2>
-                <p>Speakers of many types</p>
-        </div>
+      <div className="products-heading">
+        <h2>Best Selling products</h2>
+        <p>products You can Look to buy</p>
+      </div>
 
-        <motion.div className="products-container"  initial='initial' whileInView='animate' exit={{ opacity: 0 }}  variants={stagger}>
-                {
-                        products?.map((product,index)=> <Product key={product._id} product={product} index={index}/>)
-                }
-        </motion.div>
+      <div className="products-container">
+        {products?.map(product => (
+          <Product key={product._id} product={product} />
+        ))}
+      </div>
 
-        <FooterBanner footerBanner={banners&& banners[1]}/>
-    </MotionWrap>
+      <FooterBanner footerBanner={bannerData && bannerData[0]} />
+    </>
   )
 }
 
-export const getServerSideProps=async ({})=>{
-                
+export const getServerSideProps = async () => {
+  const query = '*[_type == "product"]'
+  const products = await client.fetch(query)
 
-                await db.connect();
-                const products= await AllProducts.find().sort({rating:-1}).limit(5*5).lean();
-                const banners= await Banner.find().lean();
+  const bannerQuery = '*[_type == "banner"]'
+  const bannerData = await client.fetch(bannerQuery)
 
-
-                return {props:{  products:products.map(db.convertDocToObj),  banners:banners.map(db.convertDocToObj)  }}
+  return {
+    props: { products, bannerData },
+  }
 }
-
 
 export default Home

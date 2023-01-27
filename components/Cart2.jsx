@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import Link from 'next/link'
-import {AiOutlineMinus,AiOutlinePlus,AiOutlineLeft,AiOutlineShopping} from "react-icons/ai"
+import {AiOutlineMinus,AiOutlinePlus,AiOutlineLeft,AiOutlineShopping, AiOutlineShoppingCart} from "react-icons/ai"
 import {TiDeleteOutline} from "react-icons/ti"
 import {toast} from "react-hot-toast"
 import getStripe from '../lib/getStripe'
@@ -41,7 +41,7 @@ const Cart = () => {
                 {
                         cart.cartItems.length<1 && (
                                 <div className='empty-cart'>
-                                        <AiOutlineShopping    size={150}/>
+                                        <AiOutlineShoppingCart   size={150}/>
                                         <h3>Your shopping bag is empty</h3>
                                         <Link href={"/"}>
                                                 <button type='button' onClick={()=>setShowCart(false)} className="btn">
@@ -64,7 +64,7 @@ const Cart = () => {
                         <div className="cart-bottom">
                                 <div className="total">
                                         <h3>Sub-total:</h3>
-                                        <h3>₦{cart.cartItems.reduce((a,c)=>a+ c.qty * c.price,0).toLocaleString()}</h3>
+                                        <h3>${cart.cartItems.reduce((a,c)=>a+ c.qty * c.price,0).toLocaleString()}</h3>
                                 </div>
                                 <div className="btn-container">
                                         <button type='button' className='btn' onClick={()=>{ router.push(session?.user? "/shipping":"/login?redirect=/shipping") && (setShowCart(false))} }>

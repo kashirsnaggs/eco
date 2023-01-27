@@ -4,7 +4,16 @@ html,body, * {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   box-sizing: border-box;
-
+  
+}
+body{
+  background-image: url("/ruggmobile.png") ;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center; 
+  background-size: 1100px 1500px;
+  
+  
 }
 
 input::-webkit-outer-spin-button,
@@ -43,6 +52,7 @@ width: 100%;
   justify-content: space-between;
   margin: 6px 18px;
   position: relative;
+  
 }
 .marquee-text{
   font-size: 29px;
@@ -102,6 +112,10 @@ width: 100%;
         justify-content: center;
         align-items: center;
         gap: 0.3rem;
+}
+.nav-btn-container1{
+  display:flex;
+ 
 }
 .cart-icon{
   font-size: 25px;
@@ -236,6 +250,13 @@ width: 100%;
   /* transition: transform 0.5s ease; */
 }
 
+.product-image1{
+  border-radius: 3px;
+  background-color: #8c8a8a;
+  /* transform: scale(1, 1); */
+  /* transition: transform 0.5s ease; */
+}
+
 .product-name{
   font-weight: 500;
 }
@@ -254,7 +275,7 @@ width: 100%;
   line-height: 0.9; 
   width: 100%;
 
-  background-image: url(https://images.pexels.com/photos/1831234/pexels-photo-1831234.jpeg?auto=compress&cs=tinysrgb&w=800) ;
+  background-image: url(https://img.freepik.com/free-vector/tropical-landscape-with-sea-bay-night_107791-5364.jpg?w=1380&t=st=1674529897~exp=1674530497~hmac=e437b7439f25d712f92a9b680c37751625ad8da355cdac11a4ba6a45da10143b) ;
   /* background-blend-mode: multiply; */
   background-repeat: no-repeat;
   background-position: center;
@@ -287,7 +308,7 @@ width: 100%;
        background-clip:text ;                           /*give text background clip */
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent; 
-        background-image: url("https://t4.ftcdn.net/jpg/05/42/91/21/240_F_542912129_8CFbmYQtEDemzAnY0ASdYFLtyFSNkaEt.jpg");
+        background-image: url("https://img.freepik.com/premium-photo/beautiful-multicolored-galaxy-elements-this-image-were-furnished-by-nasa-high-quality-photo_496756-1895.jpg");
         background-size:10%;
 }
 .hero-banner-container h1{
@@ -301,7 +322,7 @@ width: 100%;
   background-clip:text ;                           /*give text background clip */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; 
-  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYnYq7xZirIPH8HjhcLQ2pt4dLUtmH8zwrhw&usqp=CAU");
+  background-image: url("https://img.freepik.com/free-vector/realistic-galaxy-background_52683-69199.jpg?w=1800&t=st=1674274094~exp=1674274694~hmac=80857f47cd3dff06e287b86021bb717190743155cea9d285d7efdef32a3feb1e");
   background-size:10%;
   background-position:center;
 
@@ -358,7 +379,7 @@ text-align: end;
 }
 .footer-banner-container{
   padding: 100px 40px;
-  background-color: #f02d34;
+  /* background-color: #f02d34; */
   border-radius: 15px;
   position: relative;
   height: 400px;
@@ -370,7 +391,7 @@ text-align: end;
         background-blend-mode: multiply; 
         background-repeat: no-repeat;
         background-position: center;
-        background-image: url(https://images.pexels.com/photos/963278/pexels-photo-963278.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+        background-image: url(https://img.freepik.com/free-vector/realistic-style-galaxy-background_52683-69200.jpg?w=1800&t=st=1674273899~exp=1674274499~hmac=d3c69eec5d48a8b26df92f35ecb10ef45362d755053240726860732277dfde49);
 }
 .banner-desc{
   display: flex ;
@@ -442,7 +463,7 @@ text-align: end;
 }
 
 .footer-container{
-  color: #324d67;
+  color: #000000;
   text-align: center;
   margin-top: 20px;
   padding: 30px 10px;
@@ -638,9 +659,7 @@ transition: transform .3s ease ;
 .product-detail-desc h4{
   margin-top: 10px;
 }
-.product-detail-desc p{
-  /* margin-top: 10px; */
-}
+
 
 .reviews p{
   color: #324d67;
@@ -712,17 +731,20 @@ transition: transform .3s ease ;
 }
 .quantity-desc{
         min-width: fit-content;
-        border: 1px solid gray;
-
+        border: 1px solid rgb(0, 0, 0);
+        border-width: medium;
+        border-radius: 10px;
         display: flex;
         justify-content: center;
         align-items: center;
         user-select: none;
+        box-shadow: 5px 10px;
         
 }
 .quantity-desc span{
   font-size: 18px;
   padding: 12px 15px;
+  
   
 }
 
@@ -731,7 +753,7 @@ transition: transform .3s ease ;
         cursor: pointer;
         border-right: 1px solid gray;
         color: #f02d34;
-
+        border-width: medium;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -750,7 +772,7 @@ transition: transform .3s ease ;
         border-left: 1px solid gray;
         cursor: pointer;
         color: rgb(49, 168, 49);
-
+        border-width: medium;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -1658,15 +1680,15 @@ input:focus {
                 cursor: pointer;
                 color: #fff;
                 border: 2px solid transparent;
-                background-color: #2B3044;
+                background-color: #18d5df;
                 border-radius: 3px;
 
                 transition: all .4s ease-in-out;
         }
         .place-order-summary button:hover{
-                color:  #2B3044;
+                color:  #141415;
                 background-color: #fff !important;
-                border: 2px  solid #2B3044;
+                border: 2px  solid #13cbc5;
         }
                 
 
@@ -1675,8 +1697,8 @@ input:focus {
                 margin-bottom: 1.25rem;
                 /* background-color:  !important; */
                 border-radius: .5rem;
-                border: 1px solid #e5e7eb;
-                box-shadow: 0 4px 6px -1px rgba(0,0,0,.1),0 2px 4px -2px rgba(0,0,0,.1);
+                border: 1px solid #000000;
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),0 2px 4px -2px rgba(0,0,0,.1);
 
                 text-align: left;
                 padding: 1rem;
@@ -1686,11 +1708,11 @@ input:focus {
         }
 
         .place-order-card:hover{
-                background-color: #f3f4f6;
+                background-color: #111111;
         }
 
         .place-order-card h2{
-                color:#324d67;
+                color:#94989c;
                 font-size: 1.2em;
                 margin-bottom: .2rem;
              }
@@ -1792,3 +1814,71 @@ input:focus {
         color: rgb(254 226 226);
         height: 200px;
 }
+
+
+
+
+
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+a {
+  color: var(--text-secondary);
+}
+
+.app {
+  background-color: var(--background);
+  color: var(--text-primary);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: .8rem;
+  transition: all .5s;
+}
+
+.login h1 {
+  text-align: center;
+  margin: -6rem 0 2rem;
+  font-size: 48px;
+}
+
+h2 {
+  text-align: center;
+  padding: 1rem;
+}
+
+
+
+
+
+button {
+  background-color: var(--accent);
+  border: 1px solid var(--accent);
+  margin: 16px 0;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+

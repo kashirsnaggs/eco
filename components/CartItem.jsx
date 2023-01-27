@@ -6,6 +6,7 @@ import { Store } from '../context/Store'
 import { CART_ADD_ITEM, CART_REMOVE_ITEM } from '../constants/constants'
 import toast from 'react-hot-toast'
 import axios from 'axios'
+import { client, urlFor } from '../lib/client'
 
 
 const CartItem = ({item,showControls}) => {
@@ -73,27 +74,24 @@ const CartItem = ({item,showControls}) => {
         }, [itemInCart])
   return (
         <div className="product" >
-                <Link  href={`/product/${item.slug}`}>
-                        <img className='cart-product-image' src={item?.image} alt={item?.name + " product image"} /> 
+                <Link  href={`/product/${slug.current}`}>
+                        <img className='cart-product-image' src={urlFor(item.image)} alt={item?.name + " product image"} /> 
                 </Link>
                 <div className="item-desc"   style={{alignSelf: showControls? "center" : "center" }}>
                         <div className="flex top" >
-                                <h5> <Link  href={`/product/${item.slug}`}>{item.name}</Link></h5>
+                                <h5> <Link  href={`/product/${slug.current}`}>{item.name}</Link></h5>
                                 <h4 className='order-qty-display' style={{display: !showControls? "none" : "flex" }}>{`${item.qty}`}</h4>
-                                <h4>₦{item.price.toLocaleString()}</h4>
+                                <h4>${item.price.toLocaleString()}</h4>
                         </div>
                         <div className="flex bottom"  style={{display: showControls? "none" : "flex" }}>
                                 <div className="">
                                         <p className="quantity-desc" >
-                                                <span className="minus" onClick={()=>minusQty()} ><AiOutlineMinus/></span>
-                                                <span className="num" >{qty}</span>
-                                                <span className="plus" onClick={()=>plusQty()} ><AiOutlinePlus/></span>
+                                                
+                                                <span className="" > Quantity : {qty}</span>
+                                                
                                         </p>
                                 </div>
                                 <div>
-                                        <button type='button' className='add-item' onClick={()=>handleAddToCart(item,qty)}>
-                                                <AiOutlineCheckCircle/>
-                                        </button>
                                         <button type='button' className='remove-item' onClick={()=>removeItem(item)}>
                                                 <TiDeleteOutline/>
                                         </button>

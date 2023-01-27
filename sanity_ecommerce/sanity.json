@@ -1,10 +1,10 @@
 {
   "root": true,
   "project": {
-    "name": "mr-server"
+    "name": "ecommerce"
   },
   "api": {
-    "projectId": "m9we94wo",
+    "projectId": "26uxqjd7",
     "dataset": "production"
   },
   "plugins": [
